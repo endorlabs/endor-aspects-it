@@ -1,6 +1,6 @@
 module github.com/Shulammite-Aso/bazel-demo-app
 
-go 1.19
+go 1.23.0
 
 require (
 	github.com/antchfx/xmlquery v1.3.0
@@ -15,7 +15,7 @@ require (
 require (
 	github.com/antchfx/xpath v1.2.4 // indirect
 	github.com/golang/groupcache v0.0.0-20210331224755-41bb18bfe9da // indirect
-	golang.org/x/net v0.16.0 // indirect
-	golang.org/x/sys v0.13.0 // indirect
-	golang.org/x/text v0.13.0 // indirect
+	golang.org/x/net v0.38.0 // indirect
+	golang.org/x/sys v0.31.0 // indirect
+	golang.org/x/text v0.23.0 // indirect
 )
