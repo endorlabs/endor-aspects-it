@@ -3,7 +3,7 @@ module github.com/Shulammite-Aso/bazel-demo-app
 go 1.19
 
 require (
-	github.com/antchfx/xmlquery v1.3.0
+	github.com/antchfx/xmlquery v1.3.1
 	github.com/bazelbuild/rules_go v0.43.0
 	github.com/bgentry/go-netrc v0.0.0-20140422174119-9fd32a8b3d3d
 	github.com/bwmarrin/snowflake v0.3.0
