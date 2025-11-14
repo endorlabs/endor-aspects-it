@@ -1,0 +1,7 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+js_library(
+    name = "utils",
+    srcs = ["imageResizer.js"],
+    visibility = ["//visibility:public"],
+)

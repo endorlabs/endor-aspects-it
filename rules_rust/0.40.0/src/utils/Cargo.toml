@@ -1,0 +1,15 @@
+[package]
+name = "utils"
+version.workspace = true
+edition.workspace = true
+
+[lib]
+name = "utils"
+path = "mod.rs"
+
+[dependencies]
+base64 = "0.21"
+uuid = { version = "1.5", features = ["v4"] }
+rand = "0.8"
+regex = "1.10"
+

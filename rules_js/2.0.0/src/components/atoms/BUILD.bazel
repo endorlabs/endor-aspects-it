@@ -1,0 +1,15 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+js_library(
+    name = "atoms",
+    srcs = [
+        "FileUploadButton.jsx",
+        "ImagePreview.jsx",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//:node_modules/@mui/icons-material",
+        "//:node_modules/@mui/material",
+        "//:node_modules/react",
+    ],
+)

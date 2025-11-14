@@ -1,0 +1,18 @@
+load("@aspect_rules_js//js:defs.bzl", "js_library")
+
+js_library(
+    name = "molecules",
+    srcs = [
+        "ImageComparison.jsx",
+        "ImageUploader.jsx",
+    ],
+    visibility = ["//visibility:public"],
+    deps = [
+        "//:node_modules/@mui/icons-material",  # These Dependencies are available Transitively as well.
+        "//:node_modules/@mui/material",  # However, The Source Files also depend on them, So It is a direct Import.
+        "//:node_modules/react",
+        "//:node_modules/react-dropzone",
+        "//src/components/atoms",
+        "//src/utils",
+    ],
+)

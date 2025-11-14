@@ -1,0 +1,24 @@
+[workspace]
+members = [
+    "src/db",
+    "src/http",
+    "src/utils",
+]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2021"
+
+[package]
+name = "rules_rust_0_40_0"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+## internal deps 
+utils = { path = "src/utils" }
+db = { path = "src/db" }
+http = { path = "src/http" }

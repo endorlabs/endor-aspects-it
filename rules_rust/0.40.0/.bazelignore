@@ -1,0 +1,7 @@
+# Ignore Cargo build artifacts
+target/
+
+# Ignore Bazel output directories
+bazel-bin/
+bazel-out/
+bazel-testlogs/

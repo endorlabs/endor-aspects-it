@@ -1,0 +1,19 @@
+load("@bazel_gazelle//:def.bzl", "DEFAULT_LANGUAGES", "gazelle", "gazelle_binary")
+
+package(default_visibility = ["//visibility:public"])
+
+# gazelle:prefix github.com/Shulammite-Aso/bazel-demo-app
+
+gazelle(
+    name = "gazelle",
+    args = [
+        "-build_tags=integration",
+    ],
+    gazelle = "//:gazelle_binary",
+)
+
+gazelle_binary(
+    name = "gazelle_binary",
+    languages = DEFAULT_LANGUAGES,
+    visibility = ["//visibility:public"],
+)

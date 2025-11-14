@@ -1,0 +1,17 @@
+load("@rules_rust//rust:defs.bzl", "rust_library")
+
+rust_library(
+    name = "db",
+    srcs = [
+        "database.rs",
+        "mod.rs",
+        "record.rs",
+    ],
+    crate_root = "mod.rs",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@crates//:chrono",
+        "@crates//:serde",
+        "@crates//:uuid",
+    ],
+)
