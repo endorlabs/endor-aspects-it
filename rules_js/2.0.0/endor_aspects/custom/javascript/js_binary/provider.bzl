@@ -11,7 +11,7 @@ EndorJavaScriptDependencyInfo = provider(
 EndorJavaScriptSpecInfo = provider(
     doc = "Provides the JavaScript Spec. Embedded into EndorJavascriptDependencyInfo as JavaScript",
     fields = {
-        "package_name": "String: Name of the Package. e.g, path-info",
+        "name": "String: Name of the Package. e.g, path-info",
         "version": "String: Version of a Package. e.g, 2.3.5",
     },
 )

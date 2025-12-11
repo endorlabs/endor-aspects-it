@@ -4,7 +4,7 @@ def _impl(target, ctx):
     label_str = getattr(ctx, "label", "")
 
     spec = EndorJavaScriptSpecInfo(
-        package_name = "xyz",
+        name = "xyz",
         version = "1.2.3",
     )
 
