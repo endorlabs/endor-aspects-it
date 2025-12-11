@@ -1,5 +1,15 @@
 load("//endor_aspects/custom/javascript/js_binary:provider.bzl", "EndorJavaScriptDependencyInfo", "EndorJavaScriptSpecInfo")
 
+def _get_sca_information(target, ctx):
+    return "xyz", "1.2.3"
+
+def _get_dependency_list(deps):
+    labels = []
+    for dep in deps:
+        if hasattr(dep, "label") and OutputGroupInfo in dep and hasattr(dep[OutputGroupInfo], "endor_sca_info"):
+            labels.append(str(dep.label))
+    return labels
+
 def _get_dependency_files(deps):
     files = []
     for dep in deps:
@@ -11,14 +21,15 @@ def _impl(target, ctx):
     label_str = getattr(ctx, "label", "")
     deps = ctx.rule.attr.deps if hasattr(ctx.rule.attr, "deps") else []
 
+    name, version = _get_sca_information(target, ctx)
     spec = EndorJavaScriptSpecInfo(
-        name = "xyz",
-        version = "1.2.3",
+        name = name,
+        version = version,
     )
 
     provider = EndorJavaScriptDependencyInfo(
         original_label = str(label_str),
-        dependencies = [],
+        dependencies = _get_dependency_list(deps),
         internal = False,
         javascript = spec,
     )
