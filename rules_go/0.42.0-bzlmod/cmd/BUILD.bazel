@@ -1,0 +1,48 @@
+load("@io_bazel_rules_docker//go:image.bzl", "go_image")
+load("@rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_library(
+    name = "cmd_lib",
+    srcs = ["main.go"],
+    importpath = "github.com/Shulammite-Aso/bazel-demo-app/cmd",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//bazel",
+        "//handlers",
+        "@com_github_antchfx_xmlquery//:xmlquery",
+        "@com_github_bgentry_go_netrc//netrc",
+        "@com_github_bwmarrin_snowflake//:snowflake",
+        "@com_github_google_uuid//:uuid",
+        "@com_github_gorilla_mux//:mux",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)
+
+go_binary(
+    name = "cmd",
+    embed = [":cmd_lib"],
+    visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "lib",
+    srcs = ["main.go"],
+    importpath = "",
+    visibility = ["//visibility:private"],
+    deps = [
+        "@com_github_antchfx_xmlquery//:xmlquery",
+        "@com_github_bgentry_go_netrc//netrc",
+        "@com_github_bwmarrin_snowflake//:snowflake",
+        "@com_github_google_uuid//:uuid",
+        "@com_github_gorilla_mux//:mux",
+        "@com_github_shulammite_aso_bazel_demo_app//handlers:go_default_library",
+        "@com_github_sirupsen_logrus//:logrus",
+    ],
+)
+
+go_image(
+    name = "cmd_image",
+    base = "@distroless_base//image",
+    embed = [":cmd_lib"],
+    visibility = ["//visibility:public"],
+)
